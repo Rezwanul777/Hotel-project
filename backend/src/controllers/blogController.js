@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+
 const Blog = require('../model/blog.model');
 
 //create blogs
@@ -9,7 +9,7 @@ const Blog = require('../model/blog.model');
         // console.log("UserId: ", req.userId)
         const newPost = new Blog({
             ...req.body,
-            author: req.userId,
+            //author: req.userId,
         });
         await newPost.save();
         res.status(201).send({ message: 'Post created successfully', post: newPost });
@@ -43,7 +43,7 @@ exports.getAllBlogs = async (req, res) => {
         if (location) {
             query = { ...query, location };
         }
-        const posts = await Blog.find(query).sort({ createdAt: -1 }); // Adjust populate fields as necessary
+        const posts = await Blog.find(query).populate('author', 'email').sort({ createdAt: -1 }); // Adjust populate fields as necessary
         res.status(200).send(posts);
     } catch (error) {
         console.error('Error fetching posts:', error);
@@ -52,24 +52,27 @@ exports.getAllBlogs = async (req, res) => {
 }
 
 exports.getSinglePost=async(req,res)=>{
+    // Get a single post (protected route)
+
     try {
         const postId = req.params.id;
         // console.log(postId)
         
-        const result = await Blog.findById(postId).populate('author', 'email username');
+        const post = await Blog.findById(postId).populate('author', 'email username');
         // console.log(post)
 
-        if (!result) {
+        if (!post) {
             return res.status(404).send({ message: 'Post not found' });
         }
 
-        //const comments = await Comment.find({ postId: postId }).populate('user', 'username email');
+        const comments = await Comment.find({ postId: postId }).populate('user', 'username email');
 
-        res.status(200).send({ result });
+        res.status(200).send({ post, comments });
     } catch (error) {
         console.error('Error fetching post:', error);
         res.status(500).send({ message: 'Failed to fetch post' });
     }
+
 }
 
 // update blog
@@ -105,7 +108,7 @@ exports.deleteBlog = async (req, res) => {
         }
 
         // Delete associated comments
-        //await Comment.deleteMany({ postId: postId });
+        await Comment.deleteMany({ postId: postId });
 
         res.status(200).send({ message: 'Post and associated comments deleted successfully' });
     } catch (error) {
