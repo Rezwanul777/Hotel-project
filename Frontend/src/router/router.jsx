@@ -8,6 +8,10 @@ import About from "../pages/minipages/About";
 import Privacy from "../pages/minipages/Privacy";
 import Contact from "../pages/minipages/Contact";
 import SingleBlog from "../pages/blogs/SingleBlog";
+import Login from './../pages/users/login/Login';
+import Register from './../pages/users/register/Register';
+
+
 
 
 const router = createBrowserRouter([
@@ -34,6 +38,14 @@ const router = createBrowserRouter([
         {
           path: "/blog/:id",
           element: <SingleBlog />,
+        },
+        {
+          path: "/login",
+          element: <Login/>,
+        },
+        {
+          path: "/register",
+          element: <Register/>,
         },
       ],
 
