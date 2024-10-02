@@ -10,6 +10,12 @@ import Contact from "../pages/minipages/Contact";
 import SingleBlog from "../pages/blogs/SingleBlog";
 import Login from './../pages/users/login/Login';
 import Register from './../pages/users/register/Register';
+import AdminLayOut from "../pages/admin/AdminLayOut";
+import Dashboard from "../pages/dashboard/Dashboard";
+import AddNewPost from "../pages/admin/post/AddNewPost";
+import ManageitemPost from "../pages/admin/post/ManageitemPost";
+import ManageUsers from "../pages/admin/users/ManageUsers";
+import PrivateRouter from "./PrivateRouter";
 
 
 
@@ -46,6 +52,28 @@ const router = createBrowserRouter([
         {
           path: "/register",
           element: <Register/>,
+        },
+        {
+          path: "dashboard",
+          element: <PrivateRouter><AdminLayOut/></PrivateRouter>,
+          children: [
+            {
+              path: "",
+            element:<Dashboard />,
+            },
+            {
+              path: "add-new-post",
+            element:<AddNewPost />,
+            },
+            {
+              path: "manage-items",
+            element:<ManageitemPost />,
+            },
+            {
+              path: "users",
+            element:<ManageUsers/>,
+            }
+          ],
         },
       ],
 

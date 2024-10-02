@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { blogApi } from './blogs/blogApi'
 import { authApi } from './auth/authApi'
 import authReducer from './auth/authSlice';
+import commentApi from './comment/commentApi';
 // Or from '@reduxjs/toolkit/query/react'
 
 
@@ -10,11 +11,12 @@ export const store = configureStore({
     // Add the generated reducer as a specific top-level slice
     [blogApi.reducerPath]: blogApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [commentApi.reducerPath]: commentApi.reducer,
     auth:authReducer
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(blogApi.middleware,authApi.middleware),
+    getDefaultMiddleware().concat(blogApi.middleware,authApi.middleware,commentApi.middleware)
 })
 
