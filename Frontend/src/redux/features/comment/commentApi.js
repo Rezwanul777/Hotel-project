@@ -18,7 +18,7 @@ const commentApi=createApi({
         }),
         getComments: builder.query({
             query: () => ({
-              url: '/total-comments',
+              url: '/total-comment',
             })
           })
     })

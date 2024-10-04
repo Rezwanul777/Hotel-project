@@ -19,7 +19,7 @@ const AdminLayOut = () => {
         <AdminNavigation/>
       </header>
       <main className='p-8 bg-white w-full'>
-      <p>Admin content</p>
+     
         <Outlet /> 
       </main>
     </div>
