@@ -17,6 +17,7 @@ import ManageitemPost from "../pages/admin/post/ManageitemPost";
 import ManageUsers from "../pages/admin/users/ManageUsers";
 import PrivateRouter from "./PrivateRouter";
 import UpdatePost from "../pages/admin/post/UpdatePost";
+import ErrorPage from "../pages/error/ErrorPage";
 
 
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     {
       path: "/",
       element: <App/>,
+      errorElement:<ErrorPage/>,
       children: [
         {
           path: "/",
