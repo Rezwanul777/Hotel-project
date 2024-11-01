@@ -1,55 +1,64 @@
 
 
-Technology Stack
-Frontend
-React: JavaScript library for building the user interface.
-Tailwind CSS: Utility-first CSS framework for styling.
-Animation :Framer Motion
+# Hotel Rooftop Operations
 
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
 
-Backend
-Express.js: Web framework for Node.js to create the API.
-MongoDB: NoSQL database for data storage.
-Other Tools
-JWT: For secure user authentication.
+---
 
-Mongoose: ODM (Object Data Modeling) library for MongoDB and Node.js.
-Installation
+## Project Overview
+The **Hotel Rooftop Operations** project is a full-stack application designed to manage and streamline operations for hotel rooftops, particularly those with pool facilities. The system allows for booking management, rooftop amenities tracking, customer inquiries, and analytics for rooftop pool utilization.
+
+This project uses **React** with **Tailwind CSS** and **Framer Motion** for the frontend, while the backend is built with **Express.js** and **MongoDB**.
+
+---
+
+## Technology Stack
+
+### Frontend
+- **React**: JavaScript library for building the user interface.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Framer Motion**: Library for smooth animations and transitions.
+
+### Backend
+- **Express.js**: Web framework for Node.js to create the API.
+- **MongoDB**: NoSQL database for data storage.
+
+### Other Tools
+- **JWT**: For secure user authentication.
+- **Mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js.
+
+---
+
+## Installation
+
 Follow these steps to set up the project locally.
 
-Prerequisites
-Node.js installed on your machine.
-MongoDB setup locally or a MongoDB Atlas account for a cloud database.
-Steps
-Clone the repository
+### Prerequisites
+- **Node.js** installed on your machine.
+- **MongoDB** setup locally or a MongoDB Atlas account for a cloud database.
 
+### Steps
 
-git clone 
-cd hotel
-Install Backend Dependencies
+1. **Clone the repository**
 
+   ```bash
+   git clone <repository-url>
+   cd hotel
 
-cd backend
-npm install
-Install Frontend Dependencies
+   Run the Backend Server
+   cd backend
+   npm install
+   npm start
 
-
-cd frontend
-npm install
-
-
-
-MONGODB_URI: MongoDB connection string.
-JWT_SECRET: Secret key for JWT authentication.
-PORT: Server port (default: 5000).
-Run the Backend Server
-
-
-cd backend
-npm start
-Run the Frontend Development Server
-
-bash
-Copy code
-cd frontend
-npm run dev
+   Run Frontend
+   cd frontend
+   npm install
+   npm run dev
