@@ -1,5 +1,6 @@
 
 const Blog = require('../model/blog.model');
+const Comment = require('../model/comment.model');
 
 //create blogs
  exports. createBlog = async (req, res) => {

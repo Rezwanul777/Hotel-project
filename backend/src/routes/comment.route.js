@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.post('/create-comment',createComment)
-router.get('/',totalComment)
+router.get('/total-comment',totalComment)
 
 
 

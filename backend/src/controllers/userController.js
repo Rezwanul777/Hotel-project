@@ -37,9 +37,9 @@ exports.login=async(req,res)=>{
 
         res.status(200).send({ message: 'Logged in successfully', token, user: {
             _id: user._id,
-            email: user.email,
-            username: user.username,
-            role: user.role
+            email: user?.email,
+            username: user?.username,
+            role: user?.role
         } });
     } catch (error) {
         console.error('Error logging in:', error);
