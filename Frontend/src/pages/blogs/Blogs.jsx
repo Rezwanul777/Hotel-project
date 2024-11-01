@@ -29,7 +29,7 @@ const Blogs = () => {
       <div className='mt-8 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
         {blogs.map(blog => (
           <Link to={`/blog/${blog._id}`} key={blog._id} className='shadow-md'>
-            <img src={blog.coverImg} alt="" className='h-80 w-full' />
+            <img src={blog?.coverImg} alt="" className='h-80 w-full' />
             <h2 className='text-xl p-4'>{blog.title}</h2>
           </Link>
         ))}
